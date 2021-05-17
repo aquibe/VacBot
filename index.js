@@ -5,6 +5,8 @@ const https = require('https')
 const express=require('express')
 const app=express()
 
+//this code is to test api availability on hosting servers
+
 app.get('/api/kerala',(req,res)=>{
     https.get('https://cdn-api.co-vin.in/api/v2/admin/location/districts/17',(resp)=>{
         resp.on('data',(data)=>{
