@@ -1,4 +1,4 @@
-<div align="center"><img src="./assets/wlogo.png"  width="40%" ></div>
+<div align="center"><img src="https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png"  width="40%" ></div>
 <h1 align="center"><b> Discord Bot for CoWIN</b></h1>
 
 Discord Bot Script to check the available slots for Covid-19 Vaccination Centers from CoWIN API in India.
