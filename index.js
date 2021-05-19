@@ -2,7 +2,6 @@ require('dotenv').config()
 const Discord = require('discord.js')
 const client= new Discord.Client()
 const https = require('https');
-const { compileFunction } = require('vm');
 const db=require('./database')
 
 
@@ -16,9 +15,10 @@ client.on('message',async (message)=>{
             const commands = message.content.toLocaleLowerCase().split(' ') 
             switch(commands[0]){
                 case 'saveme' :
-                case '$saveme':  saveUser(message.author.id);
-                                break;
-                case '$messageall' : messageAll();
+                case '$saveme':     saveUser(message.author.id);
+                                    break;
+                case '$messageall' : messageAll();break;
+                case 'cowin' : testApi(message.author.id)
             }   
         }
         else if(message.channel.type=='dm'){
@@ -27,13 +27,31 @@ client.on('message',async (message)=>{
     }
 })
 
-async function sendMessage (userId){
+function testApi(userId){
+    var id=userId;
+    https.get('https://cdn-api.co-vin.in/api/v2/admin/location/states',(res)=>{
+        if(res.statusCode==200){
+            sendMessage(id,'request success')
+        }else if(res.statusCode==403){
+            sendMessage(id,'request failed 403')
+        }else{
+            sendMessage(id,`request failed , ${res.statusCode}`)
+        }
+        
+        res.on('data', (d) => {
+            const data = JSON.parse(d)
+            sendMessage(id,JSON.stringify(data))
+        });
+    })
+}
+
+async function sendMessage (userId,msg){
     console.log('send message called')
     const user = await client.users.fetch(userId).catch(() => console.log('could not find user'));
 
     if (!user) return console.log("User not found:(");
 
-    await user.send("message for users (subscribed)").catch(() => {
+    await user.send(msg).catch(() => {
     console.log("could not send message");
     });
 }
@@ -46,7 +64,7 @@ function messageAll(){
         }else{
             result.forEach(user => {
                 console.log(user.id)
-                sendMessage(user.id)
+                sendMessage(user.id,'automatic dm')
             });     
         }
     })
