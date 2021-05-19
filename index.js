@@ -1,56 +1,61 @@
 require('dotenv').config()
 const Discord = require('discord.js')
-const client = new Discord.Client()
-const https = require('https')
-const express = require('express')
-const app = express()
+const client= new Discord.Client()
+const https = require('https');
+const { compileFunction } = require('vm');
+const db=require('./database')
 
-//this code is to test api availability on hosting servers
 
-app.get('/api/kerala', (req, res) => {
-	https.get('https://cdn-api.co-vin.in/api/v2/admin/location/districts/17', (resp) => {
-		resp.on('data', (data) => {
-			res.send(JSON.parse(data))
-		})
-	})
-
+client.on('ready',()=>{
+    console.log('logged in as '+client.user.tag)   
 })
 
-app.get('/', (req, res) => {
-	res.send('Hello World')
+client.on('message',async (message)=>{
+    if(!message.author.bot){
+        if(message.channel.type=='text'){
+            const commands = message.content.toLocaleLowerCase().split(' ') 
+            switch(commands[0]){
+                case 'saveme' :
+                case '$saveme':  saveUser(message.author.id);
+                                break;
+                case '$messageall' : messageAll();
+            }   
+        }
+        else if(message.channel.type=='dm'){
+            console.log('dm')
+        }
+    }
 })
 
+async function sendMessage (userId){
+    console.log('send message called')
+    const user = await client.users.fetch(userId).catch(() => console.log('could not find user'));
 
-client.on('ready', (msg) => {
-	console.log('logged in as ' + client.user.tag)
-})
+    if (!user) return console.log("User not found:(");
 
-client.on('message', (msg) => {
-	console.log('username : ' + msg.author.username)
-	console.log('channel : ' + msg.channel)
-	console.log('content : ' + msg.content)
-	console.log('------------------------------------------')
-	if (!msg.author.bot) {
-		const message = msg.content.toLowerCase();
-		switch (message) {
-			case 'hello':
-				msg.reply('hello')
-				break
-			case 'about':
-				msg.reply('just a test bot')
-				break
-			case 'student':
-				msg.reply('enda monuse jaadayano')
-				break
-			default:
-				msg.channel.send('invalid command')
-		}
-	}
-})
+    await user.send("message for users (subscribed)").catch(() => {
+    console.log("could not send message");
+    });
+}
+
+function messageAll(){
+
+    db.con.query("SELECT id FROM usr WHERE 1",function (err, result) {
+        if (err) {
+            console.log('error occured while searching in db')
+        }else{
+            result.forEach(user => {
+                console.log(user.id)
+                sendMessage(user.id)
+            });     
+        }
+    })
+}
+
+function saveUser(userId){
+    console.log(userId)
+    db.insertData(userId);  
+}
 
 client.login(process.env.TOKEN)
 
-
-app.listen(process.env.PORT || 3000, () => {
-	console.log('server started')
-})
