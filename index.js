@@ -82,9 +82,9 @@ async function addUserDb(id,district,age){
 
 
 var rule = new scheduler.RecurrenceRule();
-rule.hour = 5;
+rule.minute = 10;
 scheduler.scheduleJob(rule, function(){
-    console.log('this will run every min')
+    console.log('this will run every hour ')
 })//check updates daily
 
 
