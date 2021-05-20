@@ -57,29 +57,62 @@ discord_bot.on('ready',()=>{
 
 async function addDistrictDb(id){
     dbClient.connect(async(err) => {
-        const dbTest = dbClient.db(db_name)
-        let exists = await dbTest.collection('districts').countDocuments({code:id})
+        const database = dbClient.db(db_name)
+        let exists = await database.collection('districts').countDocuments({code:id})
         if(!exists){
-            await dbTest.collection('districts').insertOne({code: id})
+            await database.collection('districts').insertOne({code: id})
         }
         dbClient.close();
     });   
 }//add a district to database so that bot can check available slots in these districts daily.
 
 
-async function addUserDb(id,district,age){
+async function addUser(id,district,age){
     dbClient.connect(async(err) => {
-        const dbTest = dbClient.db(db_name)
-        let exists = await dbTest.collection('users').countDocuments({id:id})
+        const database = dbClient.db(db_name)
+        let exists = await database.collection('users').countDocuments({id:id})
         if(!exists){
-            await dbTest.collection('users').insertOne({id: id,code:district,age:age})
+            await database.collection('users').insertOne({id: id,code:district,age:age})
+        }else{
+            await database.collection('users').updateOne({id:id},{$set:{age:age,code:district}}) 
         }
         dbClient.close();
     }); 
 }//function to add a user to db 
 //these users will be able to get hourly updates 
 
+async function updateAge(id,age){
+    dbClient.connect(async(err) => {
+        const database = dbClient.db(db_name)
+        let exists = await database.collection('users').countDocuments({id:id})
+        if(exists){
+            await database.collection('users').updateOne({id:id},{$set:{age:age}}) 
+        }      
+        dbClient.close();
+    });
+}//update age of user
 
+async function updateDistrict(id,district){
+    dbClient.connect(async(err) => {
+        const database = dbClient.db(db_name)
+        let exists = await database.collection('users').countDocuments({id:id})
+        if(exists){
+            await database.collection('users').updateOne({id:id},{$set:{code:district}}) 
+        }      
+        dbClient.close();
+    });
+}//update district of user
+
+async function deleteUser(id){
+    dbClient.connect(async(err) => {
+        const database = dbClient.db(db_name)
+        let exists = await database.collection('users').countDocuments({id:id})
+        if(exists){
+            await database.collection('users').deleteOne({id:id})  
+        }    
+        dbClient.close();
+    });
+}//delete a user from db, the user will not be able to get hourly updates 
 
 var rule = new scheduler.RecurrenceRule();
 rule.minute = 10;
