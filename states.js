@@ -1,4 +1,0 @@
-states = new Discord.MessageEmbed()
-.setColor('#0099ff')
-.setTitle('VacBot : show states')
-.addField("states","**1** : Andaman and Nicobar Islands \n**2** : Andhra Pradesh \n**3** : Arunachal Pradesh \n**4** : Assam \n**5** : Bihar \n**6** : Chandigarh \n**7** : Chhattisgarh \n**8** : Dadra and Nagar Haveli \n**9** : Delhi \n**10** : Goa \n**11** : Gujarat \n**12** : Haryana \n**13** : Himachal Pradesh \n**14** : Jammu and Kashmir \n**15** : Jharkhand \n**16** : Karnataka \n**17** : Kerala \n**18** : Ladakh \n**19** : Lakshadweep \n**20** : Madhya Pradesh \n**21** : Maharashtra \n**22** : Manipur \n**23** : Meghalaya \n**24** : Mizoram \n**25** : Nagaland \n**26** : Odisha \n**27** : Puducherry \n**28** : Punjab \n**29** : Rajasthan \n**30** : Sikkim \n**31** : Tamil Nadu \n**32** : Telangana \n**33** : Tripura \n**34** : Uttar Pradesh \n**35** : Uttarakhand \n**36** : West Bengal \n**37** : Daman and Diu")
