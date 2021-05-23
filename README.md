@@ -1,8 +1,8 @@
 <p align="center"><img src="https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png" width="100%"></p>
 <br>
-<h1>VacBot(Discord Cowin Bot)</h1>
 <div align="center"><img src="https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png"  width="500em" ></div>
-<p align="center">Hey there!👋🏻 I am VacBot, a Discord Bot who will check Covid vaccination slots availability in your area and alert you when a slot becomes available.</p>
+<h1 align="center">VacBot(Discord Cowin Bot)</h1>
+<q align="center">Hey there!👋🏻 I am VacBot, a Discord Bot who will check Covid vaccination slots availability in your area and alert you when a slot becomes available.</q>
 <br>
 <h1>Team VacBot</h1>
 <table align="center">
@@ -48,7 +48,12 @@
 1. Clone Project <code>git clone https://github.com/aquibe/VacBot</code><br>
 2. Change directory to VacBot <code>cd VacBot</code><br>
 3. Install libraries <code>npm install</code><br>
-4. Create file <code>.env</code> and add the line <code>TOKEN=enter_your_bot_token</code><br>
-5. Run project <code>node index.js</code><br>
+4. Create file <code>.env</code> and add the line <br>
+<code>TOKEN=enter_your_bot_token</code><br>
+<code>TOKEN=enter_your_bot_token</code><br>
+<code>TOKEN=enter_your_bot_token</code><br>
+<code>TOKEN=enter_your_bot_token</code><br>
+<code>TOKEN=enter_your_bot_token</code><br>
+5. Run project <code>npm start</code><br>
 <h1>How to Run?</h1>
 <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add Bot to your server</a>
