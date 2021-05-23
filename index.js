@@ -195,7 +195,6 @@ async function showUser(id){
         let userMessage = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('User Data')
-            .setDescription("Your are registered.")
             .addFields(
                 { name: 'Name', value: userData.name},
                 { name: 'Age', value: userData.age},
