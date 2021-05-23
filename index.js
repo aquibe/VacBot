@@ -339,11 +339,10 @@ async function searchUpdates(date,code){
                     let count=0;
                     await data.centers.forEach(async(c)=>{
                         await c.sessions.forEach(async(s)=>{
-                            if(s.available_capacity>0){
-                                if(s.available_capacity>0&&s.min_age_limit<=person.age){
-                                    count++
-                                }
+                            if(s.available_capacity>0&&s.min_age_limit<=person.age){
+                                count++
                             }
+                            
                         })
                     })
                     let regMsg=new Discord.MessageEmbed()
