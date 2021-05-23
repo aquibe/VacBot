@@ -10,6 +10,48 @@
 
 <br>
 
+
+
+<br>
+
+<h1>How it works?</h1>
+
+<a href="">Watch the video✌🏻</a><!--Embed-->
+
+
+<!--explanationi end-->
+<br>
+
+
+<h1>How to Run the Bot?</h1>
+
+<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add VacBot to your server</a>
+
+<h1>How to Configure Project?</h1>
+
+1. Clone Project <code>git clone https://github.com/aquibe/VacBot</code><br>
+2. Change directory to VacBot <code>cd VacBot</code><br>
+3. Install libraries <code>npm install</code><br>
+4. Create file <code>.env</code> and add the line <br><br>
+
+<code>BOT_TOKEN=enter_your_bot_token</code><br>
+<code>MONGO_DBNAME=enter_mongoDB_name</code><br>
+<code>MONGO_USERNAME=enter_your_mongoDB_Username</code><br>
+<code>MONGO_PASSWORD=enter_your_bot_mongoDB_Password</code><br>
+<code>MONGO_CLUSTER=enter_your_mongoDB_Cluster</code><br><br>
+
+5. Run project <code>npm start</code><br>
+
+<h1>Libraries used</h1>
+
+1. Discord.js : To make our NodeJS Bot for Discord<br>
+2. dotenv : To sett environmental Varible<br>
+3. https : To send request to Arogyasetu<br>
+4. mongoDB : Used as Database<br>
+5. scheduler : To ping the bot frequestly to make it awake or stop it from going offline(yeah, he's a sleepyhead😜)
+
+<br>
+
 <h1>Team VacBot</h1>
 
 <table align="center">
@@ -41,41 +83,8 @@
     <td><a href=https://github.com/neewtn>neewtn</a></td>
     <td><a href=https://discordapp.com/users/434640898605711360/>Naswih#2013</a></td>
   </tr>
+  
+  <tr>
+    <th colspan="4">Team ID: BFH/rechULibqwqj1WZ6i/2021</th>
+  </tr>
 </table>
-
-<br>
-
-<h1>How it works?</h1>
-
-<a href="">Watch the video✌🏻</a><!--Embed-->
-
-
-<!--explanationi end-->
-<br>
-
-<h1>Libraries used</h1>
-
-1. Discord.js : To make our NodeJS Bot for Discord<br>
-2. dotenv : To sett environmental Varible<br>
-3. https : To send request to Arogyasetu<br>
-4. mongoDB : Used as Database<br>
-5. scheduler : To ping the bot frequestly to make it awake or stop it from going offline(yeah, he's a sleepyhead😜)<br>
-
-<h1>How to Configure Project?</h1>
-
-1. Clone Project <code>git clone https://github.com/aquibe/VacBot</code><br>
-2. Change directory to VacBot <code>cd VacBot</code><br>
-3. Install libraries <code>npm install</code><br>
-4. Create file <code>.env</code> and add the line <br><br>
-
-<code>BOT_TOKEN=enter_your_bot_token</code><br>
-<code>MONGO_DBNAME=enter_mongoDB_name</code><br>
-<code>MONGO_USERNAME=enter_your_mongoDB_Username</code><br>
-<code>MONGO_PASSWORD=enter_your_bot_mongoDB_Password</code><br>
-<code>MONGO_CLUSTER=enter_your_mongoDB_Cluster</code><br><br>
-
-5. Run project <code>npm start</code><br>
-
-<h1>How to Run the Bot?</h1>
-
-<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add VacBot to your server</a>
