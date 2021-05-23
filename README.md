@@ -24,22 +24,22 @@
 <tr>
     <td>1</td>
     <td>Aquibe V<br>(Team Lead)</td>
-    <td>https://github.com/aquibe</td>
-    <td>aquibe#7565</td>
+    <td><a href=https://github.com/aquibe>aquibe</a></td>
+    <td><a href=https://discordapp.com/users/837630620477423616/>aquibe#7565</a></td>
   </tr>
 
 <tr>
     <td>2</td>
     <td>Shaheem PP</td>
-    <td>https://github.com/the-codeholic</td>
-    <td>Shaheem PP#8073</td>
+    <td><a href=https://github.com/the-codeholic>the-codeholic</a></td>
+    <td><a href=https://discordapp.com/users/704791676044050483/>Shaheem PP#8073</a></td>
   </tr>
 
 <tr>
     <td>3</td>
     <td>Naswih Abdurahiman</td>
-    <td>https://github.com/neewtn</td>
-    <td>Naswih#2013</td>
+    <td><a href=https://github.com/neewtn>neewtn</a></td>
+    <td><a href=https://discordapp.com/users/434640898605711360/>Naswih#2013</a></td>
   </tr>
 </table>
 
