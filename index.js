@@ -57,7 +57,7 @@ discord_bot.on('message',async (message)=>{
                     }else{
                         message.channel.send('invalid district code')
                     }//check whether district code is valid
-                }else if(commands[1]=='pincode'&&commands[2]&&commands[3]){
+                }else if(commands[1]=='pincode'&&commands[2].length==6&&commands[3]){
                     checkPincode(userId,commands[2],commands[3])                
                 }else{
                     message.channel.send(msg.checkMessages)
