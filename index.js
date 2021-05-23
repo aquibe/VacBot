@@ -374,9 +374,8 @@ async function searchUpdates(date,code){
 let rule=new scheduler.RecurrenceRule();
 rule.hour=1
 rule.minute=10
-rule.second=10
+rule.second=30
 scheduler.scheduleJob(rule,async function(){
-    console.log('daily update')
     dailyUpdate();
 })//schedule daily updates
 
