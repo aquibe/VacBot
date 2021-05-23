@@ -44,9 +44,11 @@
 3. https : To send request to Arogyasetu<br>
 4. mongoDB : Used as Database<br>
 5. scheduler : To ping the bot frequestly to make it awake or stop it from going offline(yeah, he's a sleepyhead😜)<br>
-## Libraries used
-Library Name - Version
-## How to configure
-Instructions for setting up project
-## How to Run
-Instructions for running
+<h1>How to Configure Project</h1>
+1. Clone Project <code>git clone https://github.com/aquibe/VacBot</code><br>
+2. Change directory to VacBot <code>cd VacBot</code><br>
+3. Install libraries <code>npm install</code><br>
+4. Create file <code>.env</code> and add the line <code>TOKEN=enter_your_bot_token</code><br>
+5. Run project <code>node index.js</code><br>
+<h1>How to Run?</h1>
+<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add Bot to your server</a>
