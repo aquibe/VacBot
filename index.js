@@ -36,7 +36,6 @@ discord_bot.on('message',async (message)=>{
                     //show states
                 }else if(commands[1]=='districts'||commands[1]=='district'){
                     if(commands[2]>0&&commands[2]<38){
-                        console.log(msg.district[0])
                         message.channel.send(msg.district[commands[2]])
                         //show districts
                     }else{
@@ -97,8 +96,7 @@ discord_bot.on('message',async (message)=>{
                     //send update code
                 }
             }else if(commands[0]=='unregister'){
-                //await deleteUser(userId)
-                message.channel.send('ippo cheyyoola,kurach kayinj cheythoolaam :)')
+                await deleteUser(userId)
                 // delete user
             }else if(commands[0]=='help'){
                 message.channel.send(msg.commandsMessage);
