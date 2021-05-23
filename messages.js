@@ -1,4 +1,10 @@
 const Discord = require('discord.js')
+// aboutMessage is send to text channels.
+//registerMessage,showMessage, checkMessage, updateMessage are added to inhance user experience.(eg: if the first word is 'register' and command syntax is incorrect,bot will display syntax of register command)
+//commandsMessage contain all commands.its send when user type 'help'
+//states and districts are stored loccally to save api calls,so that more users can use the service,
+//also a file named district-list stores all valid values of district code.when user request commands with district codes,bot checks whether that code is in the list and then only make api request,so it saves api calls wasted by wrong district code
+
 module.exports.aboutMessage = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setImage('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
