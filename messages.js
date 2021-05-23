@@ -32,7 +32,7 @@ module.exports.checkMessages=new Discord.MessageEmbed()
 	.addFields(
 		{name: '\u200B', value:[
 			"**To check slot by pincode:** \n`check pincode <pincode> <dd-mm-yyyy>`\n",
-			"**To check slot by district:** \n`check pincode <district code> <dd-mm-yyyy>`\n",
+			"**To check slot by district:** \n`check district <district code> <dd-mm-yyyy>`\n",
 		]},{name:'\u200B',value:'\u200B'}
 	)
 	.setFooter("Type 'help' to see all commands");
@@ -42,8 +42,8 @@ module.exports.updateMessage=new Discord.MessageEmbed()
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
-			"**To update your age:** \n`update <age>`\n",
-			"**To update your district:** \n`update <district code>`\n",
+			"**To update your age:** \n`update age <age>`\n",
+			"**To update your district:** \n`update district <district code>`\n",
 		]},{name:'\u200B',value:'\u200B'}
 	)
 	.setFooter("Type 'help' to see all commands");
@@ -58,7 +58,7 @@ module.exports.commandsMessage = new Discord.MessageEmbed()
 				"To show list of states: \n`show states`", 
 				"To show list of districts: \n`show districts <state code>`\n",
 				"To check slot by pincode: \n`check pincode <pincode> <dd-mm-yyyy>`",
-				"To check slot by district: \n`check pincode <district code> <dd-mm-yyyy>`\n",
+				"To check slot by district: \n`check district <district code> <dd-mm-yyyy>`\n",
 				"To register for updates: \n`register <district code> <age>`",
 				"To see Your data: \n`show mydata`",
 				"To update your age: \n`update age <age>`",
