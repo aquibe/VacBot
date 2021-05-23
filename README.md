@@ -1,24 +1,49 @@
-![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
+<p align="center"><img src="https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png" width="100%"></p>
+<br>
 <h1>VacBot(Discord Cowin Bot)</h1>
-<div align="center"><img src="https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png"  width="40%" ></div>
-<p>Long Description about project. This project do that. This project is awesome...</p><br>
-<h2>Team members</h2>
-1. Aquibe V [https://github.com/aquibe]<br>
-2. Shaheem PP [https://github.com/the-codeholic]<br>
-3. Naswih Abdurahiman [https://github.com/neewtn]<br>
-<h2>Team Id</h2>
-1. Aquibe V -> aquibe#7565 <br>
-2. Shaheem PP -> Shaheem PP#8073 <br>
-3. Naswih Abdurahiman -> Naswih#2013 <br>
-
+<div align="center"><img src="https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png"  width="500em" ></div>
+<p align="center">Hey there!👋🏻 I am VacBot, a Discord Bot who will check Covid vaccination slots availability in your area and alert you when a slot becomes available.</p>
 <br>
+<h1>Team VacBot</h1>
+<table align="center">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Github</th>
+    <th>Discord ID</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Aquibe V<br>(Team Lead)</td>
+    <td>https://github.com/aquibe</td>
+    <td>aquibe#7565</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Shaheem PP</td>
+    <td>https://github.com/the-codeholic</td>
+    <td>Shaheem PP#8073</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Naswih Abdurahiman</td>
+    <td>https://github.com/neewtn</td>
+    <td>Naswih#2013</td>
+  </tr>
+</table>
 <br>
-<hr>
 <h1>How it works?</h1>
-<a href="">Watch the video✌🏻</a>
-## How it Works ?
-1. Explaining the working of project
-2. Embed video of project demo
+<a href="">Watch the video✌🏻</a><!--Embed-->
+
+
+<!--explanationi end-->
+<br>
+<h1>Libraries used</h1>
+1. Discord.js : To make our NodeJS Bot for Discord<br>
+2. dotenv : To sett environmental Varible<br>
+3. https : To send request to Arogyasetu<br>
+4. mongoDB : Used as Database<br>
+5. scheduler : To ping the bot frequestly to make it awake or stop it from going offline(yeah, he's a sleepyhead😜)<br>
 ## Libraries used
 Library Name - Version
 ## How to configure
