@@ -355,7 +355,7 @@ async function searchUpdates(date,code){
                             
                     let nodataMsg=new Discord.MessageEmbed()
                                 .setTitle('Daily Update')
-                                .setDescription('No slots available in your location for you age ('+person.age+')')        
+                                .setDescription('No slots available in your district for you age ('+person.age+')')        
                     const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));
                     if(count>0){
                         await fetchedUser.send(regMsg) 
