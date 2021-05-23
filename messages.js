@@ -39,26 +39,24 @@ module.exports.updateMessage=new Discord.MessageEmbed()
 				{ name: 'Update District', value: 'update <district code> '},
 				{name: '\u200B', value: '\u200B' },)
 	.setFooter("Type 'help' to see all commands");
-module.exports.commandsMessage=new Discord.MessageEmbed()
+	module.exports.commandsMessage = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle('VacBot Help')
-	.setDescription("Hey, I'm VacBot .... description")
-	.addFields(
-			{name: '\u200B', value: '\u200B' },
-			{name:"See States",value:"show states"},
-			{name:"See Districts",value:"show districts <state code>"},
-			{name: '\u200B', value: '\u200B' },
-			{name:"Check slot by Pincode",value:"check pincode <pincode> <dd-mm-yyyy>"},
-			{name:"Check slot by District",value:"check pincode <district code> <dd-mm-yyyy>"},
-			{name: '\u200B', value: '\u200B' },
-			{name:"Register for updates",value:"register<district code> <age>"},
-			{name:"See your data",value:"show mydata"},
-			{name:"Update your age",value:"update age <age>"},
-			{name:"Update your age",value:"update age <age>"},
-			{name:"Un-register to updates",value:"unregister"},
-			)
 	.setThumbnail('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
-	.setFooter("Type 'help' to see all commands");
+	.setTitle('**VacBot**')
+	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[ADD VacBot](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)\n\u200B")
+	.addFields(
+		{name:"Commands", value:[
+				"To show list of states: \n`show states`", 
+				"To show list of districts: \n`show districts <state code>`\n",
+				"To check slot by pincode: \n`check pincode <pincode> <dd-mm-yyyy>`",
+				"To check slot by district: \n`check pincode <district code> <dd-mm-yyyy>`\n",
+				"To register for updates: \n`register <district code> <age>`",
+				"To see Your data: \n`show mydata`",
+				"To update your age: \n`update age <age>`",
+				"To un-register updates: \n`unregister`\n",
+			]},
+		)
+	.setFooter("eg:- for registration send: register 302 18");
 
 module.exports.states=new Discord.MessageEmbed()
 	.setColor('#0099ff')
