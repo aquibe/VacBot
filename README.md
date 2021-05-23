@@ -6,7 +6,15 @@
 
 <h1 align="center">VacBot(Discord Cowin Bot)</h1>
 
-<q align="center">Hey there!👋🏻 I am VacBot, a Discord Bot who will check Covid vaccination slots availability in your area and alert you when a slot becomes available.</q>
+<p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team">a 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> CoWin Discord Bot Project.</p>
+
+<br>
+
+<h5>So,<br>
+    1. <a href="#work">How it Works?</a><br>
+    2. <a href="#use">How to Use the Bot?</a><br>
+    3. <a href="#configure">How to Configure Project?</a><br>
+    4. <a href="library">Which all Libraries used?</a><br></h5>
 
 <br>
 
@@ -42,7 +50,7 @@
 
 5. Run project <code>npm start</code><br>
 
-<h1>Libraries used</h1>
+<h1 id="library">Libraries used</h1>
 
 1. Discord.js : To make our NodeJS Bot for Discord<br>
 2. dotenv : To sett environmental Varible<br>
@@ -52,7 +60,7 @@
 
 <br>
 
-<h1>Team VacBot</h1>
+<h1 id="team">Team VacBot</h1>
 
 <table align="center">
 
