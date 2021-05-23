@@ -78,4 +78,4 @@
 
 <h1>How to Run the Bot?</h1>
 
-<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add Bot to your server</a>
+<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add VacBot to your server</a>
