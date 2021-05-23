@@ -6,7 +6,7 @@
 
 <h1 align="center">VacBot(Discord Cowin Bot)</h1>
 
-<p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team">a 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> CoWin Discord Bot Project.</p>
+<p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team">a 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> Discord Bot for COWIN Project.</p>
 
 <br>
 
@@ -14,7 +14,7 @@
     1. <a href="#work">How it Works?</a><br>
     2. <a href="#use">How to Use the Bot?</a><br>
     3. <a href="#configure">How to Configure Project?</a><br>
-    4. <a href="library">Which all Libraries used?</a><br></h5>
+    4. <a href="#library">Which all Libraries used?</a><br></h5>
 
 <br>
 
@@ -22,33 +22,50 @@
 
 <br>
 
-<h1>How it works?</h1>
+<h1 id="work">How it works?</h1>
 
 <a href="">Watch the video✌🏻</a><!--Embed-->
+<p>It is a discord app to get upcoming COWIN appointments based on commands. For each commands you can register yourself to database, with your District and Age, you can check the slots for vaccination using your pincode, update your district while you moving put and lot more. Excited to check out the bot? Click here to go to '<a href="#use">How to use the bot</a>'</p>
 
 
 <!--explanationi end-->
 <br>
 
 
-<h1>How to Run the Bot?</h1>
+<h1 id="use">How to Use the Bot?</h1>
 
-<a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot">Click to add VacBot to your server</a>
+1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discordapp.com/users/844918394888388629/">click here</a> to direct message to our vacbot<br>
+2. type <code>$vacbot</code> to show the wizard where you can see link to add the bot to other servers and also an option to direct message to bot. click that link.
+3. when you open Direct Message to the bot you can see every commans using <code>help</code> command<br>
+4. First find your State code using <code>show states</code> command.<br>
+5. Now find your district code using <code>show district STATE-CODE</code>
+Eg: if kerala state, <code>show district 17</code><br>
 
-<h1>How to Configure Project?</h1>
+<br>
 
-1. Clone Project <code>git clone https://github.com/aquibe/VacBot</code><br>
-2. Change directory to VacBot <code>cd VacBot</code><br>
-3. Install libraries <code>npm install</code><br>
-4. Create file <code>.env</code> and add the line <br><br>
+<h1 id="configure">How to Configure Project?</h1>
 
-<code>BOT_TOKEN=enter_your_bot_token</code><br>
-<code>MONGO_DBNAME=enter_mongoDB_name</code><br>
-<code>MONGO_USERNAME=enter_your_mongoDB_Username</code><br>
-<code>MONGO_PASSWORD=enter_your_bot_mongoDB_Password</code><br>
-<code>MONGO_CLUSTER=enter_your_mongoDB_Cluster</code><br><br>
-
-5. Run project <code>npm start</code><br>
+1. Clone Project
+```
+git clone https://github.com/aquibe/VacBot
+```
+2. Change directory to VacBot
+```
+cd VacBot
+```
+3. Install libraries
+```
+npm install
+```
+4. Create file <code>.env</code> and add the line
+```
+BOT_TOKEN=enter_your_bot_token
+MONGO_DBNAME=enter_mongoDB_name
+MONGO_USERNAME=enter_your_mongoDB_Username
+MONGO_PASSWORD=enter_your_bot_mongoDB_Password
+MONGO_CLUSTER=enter_your_mongoDB_Cluster
+```
+5. Run project <code>npm start</code>
 
 <h1 id="library">Libraries used</h1>
 
