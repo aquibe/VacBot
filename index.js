@@ -97,6 +97,7 @@ discord_bot.on('message',async (message)=>{
                 }
             }else if(commands[0]=='unregister'){
                 await deleteUser(userId)
+                message.channel.send('Unregistered from daily updates')
                 // delete user
             }else if(commands[0]=='help'){
                 message.channel.send(msg.commandsMessage);
