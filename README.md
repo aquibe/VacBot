@@ -69,6 +69,7 @@
 4. Create file <code>.env</code> and add the line <br><br>
 
 <code>BOT_TOKEN=enter_your_bot_token</code><br>
+<code>MONGO_DBNAME=enter_mongoDB_name</code><br>
 <code>MONGO_USERNAME=enter_your_mongoDB_Username</code><br>
 <code>MONGO_PASSWORD=enter_your_bot_mongoDB_Password</code><br>
 <code>MONGO_CLUSTER=enter_your_mongoDB_Cluster</code><br><br>
