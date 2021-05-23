@@ -1,21 +1,36 @@
 <div align="center"><img src="https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png"  width="40%" ></div>
-<h1 align="center"><b> Discord Bot for CoWIN</b></h1>
+<h1 align="center"><b>Discord Bot for CoWIN</b></h1>
 
-Discord Bot Script to check the available slots for Covid-19 Vaccination Centers from CoWIN API in India.
+Check the bot here [VacBot#4848](https://discordapp.com/users/844918394888388629/)
 
+This is a simple Discord bot to
 
+- Check slots availability manually 
+- Register CoWIN slots by district and age group (18+ or 45+)
+- Able to get hourly update on open slots if available
+- Change yuor age group and district
+- Navigate to COWIN site if slot available
+- ~~Book an available slot~~
 
-<h3 align="center">UPCOMING FEATURES</h3>
+all this with a simple commands.
 
-1. On command you will be able to register a district to get vaccinated and select age group (18+ or 45+).<br>
-2. Able to get hourly update on open slots if available <br>
-3. User will be able to manually check COWIN slots available for their district<br>
-4. User will be able to change their age group and district  <br>
-5. Navigate to COWIN site if slot available.<br>
+## Note
 
+On 6th May 2021, CoWin API added caching and rate limits. The public API data would be cached upto 30 minutes, so the alerts wouldn't be so instant in busy areas, which reduced this bot's functionality to being a nice UI for public CoWIN bot in Discord.
 
+## Development
 
-<h3 align="center">TEAM MEMBERS</h3>
+Open an issue for any discussions and feel free to send a PR.
+
+## Disclaimer
+
+Not affiliated with Ministry of Health and Family Welfare OR Government of India in any capacity.
+
+## License
+
+Released under MIT License. Check `LICENSE` file more info.
+
+## Team Members
 
 1. [Aquibe V](https://github.com/aquibe) <br>
 2. [Naswih Abdurahiman](https://github.com/neewtn) <br>
