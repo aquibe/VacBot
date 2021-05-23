@@ -2,29 +2,30 @@ require('dotenv').config()//env variables
 
 const Discord = require('discord.js')// imported discord js
 const discord_bot= new Discord.Client()// created client object
+
 const https = require('https') // imported http module
-const MongoClient = require('mongodb').MongoClient; // imported mongodb 
 const scheduler = require('node-schedule')//imported node-sheduler 
 const msg= require('./messages') // imported files containing some discord messages
 const districtList=require('./district-list')// list of valid district codes
-const db_name="test" // set database name to this variable (as we are using da-name in many places)
 
+const MongoClient = require('mongodb').MongoClient; // imported mongodb 
+const db_name=process.env.MONGO_DBNAME// set database name to this variable (as we are using da-name in many places)
 const mongoUri = "mongodb+srv://"+process.env.MONGO_USERNAME+":"+process.env.MONGO_PASSWORD+"@"+process.env.MONGO_CLUSTER+"/"+db_name;
 const dbClient = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
 //dbClient is used to connect to mongodb 
 
 
-//  dbClient.connect((err)=>{
-//      if(err){
-//          console.log(err)
-//      }else{
-//          console.log('db connected')
-//      }
-//  })//connect to mongodb atlas
+dbClient.connect((err)=>{
+     if(err){
+         console.log(err)
+     }else{
+        console.log('db connected')
+     }
+ })//connect to mongodb atlas
 
 
 discord_bot.on('message',async (message)=>{
-    const commands = message.content.toLocaleLowerCase().split(' ') 
+    const commands = message.content.toLocaleLowerCase().split(' ') //divide message to words and store in array
     
     if(!message.author.bot){
         if(message.channel.type=='dm'){ 
@@ -40,15 +41,14 @@ discord_bot.on('message',async (message)=>{
                         //show districts
                     }else{
                         message.channel.send('invalid state code')
-                        console.log('send show codes')
-                        //send show codes
+                        //invalid state code
                     }
                 }else if(commands[1]=='mydata'){
                     await showUser(userId)
                     //show user data
                 }else{
                     message.channel.send(msg.showMessages)
-                    //send show codes
+                    //send show codes 
                 }
             }else if(commands[0]=='check'){
                 if(commands[1]=='district'&&commands[2]&&commands[3]){
@@ -57,7 +57,7 @@ discord_bot.on('message',async (message)=>{
                         checkDistrict(userId,commands[2],commands[3])
                     }else{
                         message.channel.send('invalid district code')
-                    }
+                    }//check whether district code is valid
                 }else if(commands[1]=='pincode'&&commands[2]&&commands[3]){
                     checkPincode(userId,commands[2],commands[3])                
                 }else{
@@ -90,16 +90,15 @@ discord_bot.on('message',async (message)=>{
                         await showUser(userId)
                     }else{
                         message.channel.send('Invalid District code')
-                    }
-                    
+                    }                   
                     // update district
                 }else{
                     message.channel.send(msg.updateMessage)
                     //send update code
                 }
             }else if(commands[0]=='unregister'){
-                await deleteUser(userId)
-                message.channel.send('Unregistered')
+                //await deleteUser(userId)
+                message.channel.send('ippo cheyyoola,kurach kayinj cheythoolaam :)')
                 // delete user
             }else if(commands[0]=='help'){
                 message.channel.send(msg.commandsMessage);
@@ -120,7 +119,8 @@ discord_bot.on('message',async (message)=>{
 
 discord_bot.on('ready',()=>{
     console.log('logged in as '+discord_bot.user.tag)
-})// bot is logged in
+    discord_bot.user.setActivity('$vacbot',{type:"LISTENING"})
+})// bot logged in
 
 
 discord_bot.login(process.env.BOT_TOKEN)
@@ -151,7 +151,7 @@ async function addUser(id,name,code,district_name,age){
         await addDistrict(code,district_name)
     }
 }//function to add a user to db 
-//these users will be able to get hourly updates 
+//these users will be able to get daily updates 
 
 async function updateAge(id,age){
     const database = dbClient.db(db_name)
@@ -161,8 +161,7 @@ async function updateAge(id,age){
     }else{
         const fetchedUser=await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
         await fetchedUser.send('You are a not registered user.') 
-    }
-           
+    }           
 }//update age of user
 
 async function updateDistrict(id,code,name){
@@ -222,26 +221,38 @@ async function removeDistrict(id){
 }//remove district from districts database
 
 function checkDistrict(id,code,date){
-    https.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+code+"&date="+date, async(resp)=>{       
+    https.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+code+"&date="+date,async (resp)=>{    
+
         if(resp.statusCode==200){
-            resp.on('data',async(d)=>{
+           let d=''
+            resp.on('data',(c)=>{
+                d+=c
+            })
+
+            resp.on('end',async()=>{
                 let arr=[];
                 const data=JSON.parse(d);
-                data.sessions.forEach((i)=>{
+                const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
+                await data.sessions.forEach((i)=>{
                     if(i.available_capacity>0){
-                            arr.push({name:i.name,value:`center id : ${i.center_id}\nname : ${i.name}\naddress : ${i.address}\nblock name : ${i.block_name}\npincode : ${i.pincode}\n\nfee type : ${i.fee_type}\nfee : ${i.fee}\nvaccine : ${i.vaccine}\nminimum age : ${i.min_age_limit}\n\ndose 1 capacity : ${i.available_capacity_dose1}\ndose 2 capacity : ${i.available_capacity_dose2}`})
-                            arr.push({name: '\u200B', value: '\u200B' })
+                        arr.push({name:i.name,value:"date : "+i.date+"\ncenter id : "+i.center_id+"\nname : "+i.name+"\naddress : "+i.address+"\nblock name : "+i.block_name+"\npincode : "+i.pincode+"\n\nfee type : "+i.fee_type+"\nfee : "+i.fee+"\nvaccine : "+i.vaccine+"\nminimum age : "+i.min_age_limit+"\n\ndose 1 capacity : "+i.available_capacity_dose1+"\ndose 2 capacity : "+i.available_capacity_dose2})
                     }
+
                 })
-                let dataMsg=new Discord.MessageEmbed()
-                            .setTitle('Available slots : '+date)
-                            .addFields(arr,{name:"To register,visit",value:"https://www.cowin.gov.in/home"})
+
+                let regMsg=new Discord.MessageEmbed()
+                            .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                 let nodataMsg=new Discord.MessageEmbed()
                             .setTitle('Available slots : '+date)
                             .setDescription('No available slots in this location')        
-                const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
-                if(arr.length>0){
-                    await fetchedUser.send(dataMsg) 
+                 if(arr.length>0){
+                    arr.forEach(async(i)=>{                      
+                        let dataMsg=new Discord.MessageEmbed()
+                            .setTitle(i.name)
+                            .setDescription(i.value)
+                        await fetchedUser.send(dataMsg)
+                    })
+                    await fetchedUser.send(regMsg) 
                 }else{
                     await fetchedUser.send(nodataMsg) 
                 }                                       
@@ -251,30 +262,39 @@ function checkDistrict(id,code,date){
             await fetchedUser.send('Could not complete this request\n\nPlease check the request and try again')
         }
     })
-}
+}//available slots in given district on given date
+
+
 function checkPincode(id,code,date){
     https.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+code+"&date="+date, async(resp)=>{       
         if(resp.statusCode==200){
-            console.log(resp.statusCode)
-            resp.on('data',async(d)=>{
+            let d=''
+            resp.on('data',(c)=>{
+                d+=c
+            })
+            resp.on('end',async()=>{
                 let arr=[];
-                const data=JSON.parse(d);
-                data.sessions.forEach((i)=>{
-                    if(i.available_capacity>0){
-                        console.log(i)
-                            arr.push({name:i.name,value:`center id : ${i.center_id}\nname : ${i.name}\naddress : ${i.address}\nblock name : ${i.block_name}\npincode : ${i.pincode}\n\nfee type : ${i.fee_type}\nfee : ${i.fee}\nvaccine : ${i.vaccine}\nminimum age : ${i.min_age_limit}\n\ndose 1 capacity : ${i.available_capacity_dose1}\ndose 2 capacity : ${i.available_capacity_dose2}`})
-                            arr.push({name: '\u200B', value: '\u200B' })
+                const data=JSON.parse(d)
+                const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
+               
+                await data.sessions.forEach((i)=>{
+                    if(i.available_capacity>0){                     
+                        arr.push({name:i.name,value:`date : ${i.date}\ncenter id : ${i.center_id}\nname : ${i.name}\naddress : ${i.address}\nblock name : ${i.block_name}\npincode : ${i.pincode}\n\nfee type : ${i.fee_type}\nfee : ${i.fee}\nvaccine : ${i.vaccine}\nminimum age : ${i.min_age_limit}\n\ndose 1 capacity : ${i.available_capacity_dose1}\ndose 2 capacity : ${i.available_capacity_dose2}`})
                     }
                 })
-                let dataMsg=new Discord.MessageEmbed()
-                            .setTitle('Available slots : '+date)
-                            .addFields(arr,{name:"To register,visit",value:"https://www.cowin.gov.in/home"})
+                let regMsg=new Discord.MessageEmbed()
+                            .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                 let nodataMsg=new Discord.MessageEmbed()
                             .setTitle('Available slots : '+date)
                             .setDescription('No available slots in this location')        
-                const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
-                if(arr.length>0){
-                    await fetchedUser.send(dataMsg) 
+                 if(arr.length>0){
+                    arr.forEach(async(i)=>{
+                        let dataMsg=new Discord.MessageEmbed()
+                            .setTitle(i.name)
+                            .setDescription(i.value)
+                        await fetchedUser.send(dataMsg)
+                    })
+                    await fetchedUser.send(regMsg) 
                 }else{
                     await fetchedUser.send(nodataMsg) 
                 }                  
@@ -284,24 +304,95 @@ function checkPincode(id,code,date){
             await fetchedUser.send('Could not complete this request\n\nPlease check the request and try again')
         }
     })
-}
-
-
-// let rule1 = new scheduler.RecurrenceRule();
-// rule1.second = 10;
-// scheduler.scheduleJob(rule1, function(){
-//     const user = await client.users.fetch('434640898605711360').catch(() => console.log('could not find user'));
-//     if (!user) return console.log("User not found:(");
-//     await user.send('ping').catch(() => {
-//         console.log("could not send message");
-//     });
-// })//to make the bot stay online
+}//available slots on given pincode on given date
 
 
 
-// let rule2=new scheduler.RecurrenceRule();
-// rule2.hour=5
-// scheduler.scheduleJob(rule2, function(){
-//     console.log('task 2')
-// })
+
+async function dailyUpdate(){
+    const database = dbClient.db(db_name) 
+    const allDistricts =  database.collection('districts').find({})
+    let today=new Date()
+    let month=today.getMonth()
+    month++
+    if(month<10){
+        month=`0${month}`
+    }
+    let date=`${today.getDate()}-${month}-${today.getFullYear()}`
+    console.log('daily update : '+date)
+    await allDistricts.forEach(async(dist)=>{
+        await searchUpdates(date,dist.code)         
+    })   
+}//daily update
+
+async function searchUpdates(date,code){
+    https.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id="+code+"&date="+date,async (resp)=>{    
+        if(resp.statusCode==200){
+           let d=''
+            resp.on('data',(c)=>{
+                d+=c
+            })
+
+            resp.on('end',async()=>{             
+                const data=JSON.parse(d);
+                const database = dbClient.db(db_name) 
+                const people =  database.collection('users').find({code:code})
+                await people.forEach(async(person)=>{
+                    let count=0;
+                    await data.centers.forEach(async(c)=>{
+                        await c.sessions.forEach(async(s)=>{
+                            if(s.available_capacity>0){
+                                if(s.available_capacity>0&&s.min_age_limit<=person.age){
+                                    count++
+                                }
+                            }
+                        })
+                    })
+                    let regMsg=new Discord.MessageEmbed()
+                            .setTitle('Daily Update')
+                            .setDescription(count+' slots are available for you')
+                            .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
+                            
+                    let nodataMsg=new Discord.MessageEmbed()
+                                .setTitle('Daily Update')
+                                .setDescription('No slots available in your location for you age ('+person.age+')')        
+                    const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));
+                    if(count>0){
+                        await fetchedUser.send(regMsg) 
+                    }else{
+                        await fetchedUser.send(nodataMsg) 
+                    }  
+                })                                         
+            })
+        }
+    })
+    return
+}//send daily updates
+
+
+
+let rule=new scheduler.RecurrenceRule();
+rule.hour=1
+rule.minute=10
+rule.second=10
+scheduler.scheduleJob(rule,async function(){
+    console.log('daily update')
+    dailyUpdate();
+})//schedule daily updates
+
+
+
+
+
+let rule1 = new scheduler.RecurrenceRule();
+rule1.second = 10;
+scheduler.scheduleJob(rule1,async function(){
+    const user = await discord_bot.users.fetch('434640898605711360').catch(() => console.log('could not find user'));
+    if (!user) return console.log("User not found:(");
+    await user.send('ping').catch(() => {
+        console.log("could not send message");
+    });
+})//to make the bot stay online
+
+
 
