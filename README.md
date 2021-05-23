@@ -32,6 +32,6 @@ Released under MIT License. Check `LICENSE` file more info.
 
 ## Team Members
 
-1. [Aquibe V](https://github.com/aquibe) <br>
-2. [Naswih Abdurahiman](https://github.com/neewtn) <br>
-3. [Shaheem PP](https://github.com/the-codeholic)
+- [Aquibe V](https://github.com/aquibe) <br>
+- [Naswih Abdurahiman](https://github.com/neewtn) <br>
+- [Shaheem PP](https://github.com/the-codeholic)
