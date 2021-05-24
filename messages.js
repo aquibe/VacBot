@@ -1,78 +1,84 @@
 const Discord = require('discord.js')
+// aboutMessage is send to text channels.
+//registerMessage,showMessage, checkMessage, updateMessage are added to inhance user experience.(eg: if the first word is 'register' and command syntax is incorrect,bot will display syntax of register command)
+//commandsMessage contain all commands.its send when user type 'help'
+//states and districts are stored loccally to save api calls,so that more users can use the service,
+//also a file named district-list stores all valid values of district code.when user request commands with district codes,bot checks whether that code is in the list and then only make api request,so it saves api calls wasted by wrong district code
+
 module.exports.aboutMessage = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#4545ff')
 	.setImage('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('Welcome to VacBot')
-	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\nDM me <@844918394888388629>")
-	.setFooter('This Bot is only available for DM. Bot will not provide services in channels.');
+	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\nDM me <@844918394888388629>\n\n\u200B\n[ADD VacBot to your server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)")
+	.setFooter('This Bot is only available on DM.');
 
 module.exports.registerMessage=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields({ name: '\u200B', value: "**To register for updates:** \n`register <district code> <age>`"},
-				{name: '\u200B', value: "eg:- if you are looking for 19 year old at calicut send: \n`register 305 19`\n" })
+				{name: '\u200B', value: "eg:- if you are a for 19 year old at calicut send: \n`register 305 19`" },
+				{name:'\u200B',value:'\u200B'})
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.showMessages=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
 			"**To show list of states:** \n`show states`\n", 
 			"**To show list of districts:** \n`show districts <state code>`\n",
 			"**To see Your data:** \n`show mydata`\n",
-		]},
+		]},{name:'\u200B',value:'\u200B'}
 	)
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.checkMessages=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
 			"**To check slot by pincode:** \n`check pincode <pincode> <dd-mm-yyyy>`\n",
-			"**To check slot by district:** \n`check pincode <district code> <dd-mm-yyyy>`\n",
-		]},
+			"**To check slot by district:** \n`check district <district code> <dd-mm-yyyy>`\n",
+		]},{name:'\u200B',value:'\u200B'}
 	)
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.updateMessage=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
-			"**To update your age:** \n`update <age>`",
-			"**To update your district:** \n`update <district code>`",
-		]},
+			"**To update your age:** \n`update age <age>`\n",
+			"**To update your district:** \n`update district <district code>`\n",
+		]},{name:'\u200B',value:'\u200B'}
 	)
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.commandsMessage = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#4545ff')
 	.setThumbnail('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('**VacBot**')
-	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[ADD VacBot](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)\n\u200B")
+	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[ADD VacBot to you server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)\n\u200B")
 	.addFields(
 		{name:"Commands", value:[
 				"To show list of states: \n`show states`", 
 				"To show list of districts: \n`show districts <state code>`\n",
 				"To check slot by pincode: \n`check pincode <pincode> <dd-mm-yyyy>`",
-				"To check slot by district: \n`check pincode <district code> <dd-mm-yyyy>`\n",
+				"To check slot by district: \n`check district <district code> <dd-mm-yyyy>`\n",
 				"To register for updates: \n`register <district code> <age>`",
 				"To see Your data: \n`show mydata`",
 				"To update your age: \n`update age <age>`",
 				"To un-register updates: \n`unregister`\n",
-			]},
+			]},{name:'\u200B',value:'\u200B'}
 		)
 		.setFooter("eg:- for registering updates for 19 at calicut send: register 305 19");
+
+
 
 module.exports.states=new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('States List')
-	.addField("\u200B","**1** : Andaman and Nicobar Islands \n**2** : Andhra Pradesh \n**3** : Arunachal Pradesh \n**4** : Assam \n**5** : Bihar \n**6** : Chandigarh \n**7** : Chhattisgarh \n**8** : Dadra and Nagar Haveli  \n**9** : Delhi \n**10** : Goa \n**11** : Gujarat \n**12** : Haryana \n**13** : Himachal Pradesh \n**14** : Jammu and Kashmir \n**15** : Jharkhand \n**16** : Karnataka \n**17** : Kerala \n**18** : Ladakh \n**19** : Lakshadweep \n**20** : Madhya Pradesh \n**21** : Maharashtra \n**22** : Manipur \n**23** : Meghalaya \n**24** : Mizoram \n**25** : Nagaland \n**26** : Odisha \n**27** : Puducherry \n**28** : Punjab \n**29** : Rajasthan \n**30** : Sikkim \n**31** : Tamil Nadu \n**32** : Telangana \n**33** : Tripura \n**34** : Uttar Pradesh \n**35** : Uttarakhand \n**36** : West Bengal\n**37** : Daman and Diu")
-
-
-
+	.addField("states","*1* : Andaman and Nicobar Islands \n*2* : Andhra Pradesh \n*3* : Arunachal Pradesh \n*4* : Assam \n*5* : Bihar \n*6* : Chandigarh \n*7* : Chhattisgarh \n*8* : Dadra and Nagar Haveli  \n*9* : Delhi \n*10* : Goa \n*11* : Gujarat \n*12* : Haryana \n*13* : Himachal Pradesh \n*14* : Jammu and Kashmir \n*15* : Jharkhand \n*16* : Karnataka \n*17* : Kerala \n*18* : Ladakh \n*19* : Lakshadweep \n*20* : Madhya Pradesh \n*21* : Maharashtra \n*22* : Manipur \n*23* : Meghalaya \n*24* : Mizoram \n*25* : Nagaland \n*26* : Odisha \n*27* : Puducherry \n*28* : Punjab \n*29* : Rajasthan \n*30* : Sikkim \n*31* : Tamil Nadu \n*32* : Telangana \n*33* : Tripura \n*34* : Uttar Pradesh \n*35* : Uttarakhand \n*36* : West Bengal\n*37* : Daman and Diu")
 
 module.exports.district=[]
 module.exports.district[1] = new Discord.MessageEmbed()
