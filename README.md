@@ -8,7 +8,7 @@
 
 <p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, which will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team"> 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> Discord Bot for CoWIN Project.</p>
 <br>
-<h3 align="center"><a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Add the bot to your server</a> | <a href="https://discordapp.com/users/844918394888388629/">Direct Message to the Bot</a></h3>
+<h3 align="center"><a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Add the bot to your server</a> | <a href="https://discord.gg/DUPNJp7vYB/">Join our VacBot server</a></h3>
 
 <br>
 <h4>So,<br>
@@ -34,8 +34,8 @@
 <br><br>
 <h1 id="use">How to Use the Bot?</h1>
 
-1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discordapp.com/users/844918394888388629/">click here</a> to direct a message to our VavBot<br>
-2. Type <code>$vacbot</code> in text channels to show the wizard where you can see the link to add the bot to other servers and also an option to direct message to the bot. Click that link.
+1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discord.gg/DUPNJp7vYB/">click here</a> to join our VavBot server<br>
+2. Type <code>$vacbot</code> in text channels to show the wizard where you can see the link to add the bot to other servers and also an option to direct message to the bot. Click that link or clcik on profile.
 3. When you open Direct Message to the bot you can see every command using the <code>help</code> command<br>
 4. First, find your State code using the <code>show states</code> command.<br>
 5. Now find your district code using <code>show district STATE_CODE</code>  -> Eg: for Kerala state, <code>show district 17</code><br>
