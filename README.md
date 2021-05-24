@@ -7,14 +7,15 @@
 <h1 align="center">VacBot(Discord Cowin Bot)</h1>
 
 <p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team"> 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> Discord Bot for COWIN Project.</p>
-
+<br>
+<h3 align="center"><a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Add bot to your server</a> | <a href="https://discordapp.com/users/844918394888388629/">Direct Message to the Bot</a></h3>
 
 <br>
-<h5>So,<br>
+<h4>So,<br>
     1. <a href="#work">How it Works?</a><br>
     2. <a href="#use">How to Use the Bot?</a><br>
     3. <a href="#configure">How to Configure Project?</a><br>
-    4. <a href="#library">Which all Libraries used?</a><br></h5>
+    4. <a href="#library">Which all Libraries used?</a><br></h4>
 
 
 
@@ -82,7 +83,7 @@ npm start
 2. dotenv : To sett environmental Varible<br>
 3. https : To send request to Arogyasetu<br>
 4. mongoDB : Used as Database<br>
-5. scheduler : To ping the bot frequestly to make it awake or stop it from going offline(yeah, he's a sleepyhead😜)
+5. scheduler : To shedule daily message
 
 <br><br>
 
