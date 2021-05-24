@@ -24,7 +24,7 @@
 
 <h1 id="work">How it works?</h1>
 
-<p>It is a discord app to get upcoming COWIN appointments based on commands. For each commands you can register yourself to database, with your District and Age, you can check the slots for vaccination using your pincode, update your district while you moving put and lot more. Excited to check out the bot? Click here to go to '<a href="#use">How to use the bot</a>'</p>
+<p>It is a discord app to get upcoming COWIN appointments based on commands. For each commands you can register yourself to database, with your District and Age, you can check the slots for vaccination using your pincode, update your district while you moving put and lot more. This bot works in Direct Message, but you can also add the bot to your server, and you can see a link to send Direct Message to bot. After you register your disctrict with the bot, you'll get slot availability notification everyday at 6:40AM(IST). Excited to check out the bot? Click here to go to '<a href="#use">How to use the bot.</a>'</p>
 
 * <a href="https://www.loom.com/share/c4e2333b55894b43b9d6ce194d77de1e">Click here to watch the video presentation</a>
 
@@ -68,7 +68,10 @@ MONGO_USERNAME=enter_your_mongoDB_Username
 MONGO_PASSWORD=enter_your_bot_mongoDB_Password
 MONGO_CLUSTER=enter_your_mongoDB_Cluster
 ```
-5. Run project <code>npm start</code>
+5. Run project
+```
+npm start
+```
 
 
 <br><br>
