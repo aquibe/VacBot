@@ -24,7 +24,7 @@
 
 <h1 id="work">How it works?</h1>
 
-
+https://raw.githubusercontent.com/aquibe/VacBot/main/assets/Loom Recording.mp4   
 * https://www.loom.com/share/3e63ab39e38341bfb5d0bfd983d10c66
 <p>It is a discord app to get upcoming COWIN appointments based on commands. For each commands you can register yourself to database, with your District and Age, you can check the slots for vaccination using your pincode, update your district while you moving put and lot more. Excited to check out the bot? Click here to go to '<a href="#use">How to use the bot</a>'</p>
 
