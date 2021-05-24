@@ -36,7 +36,7 @@
 
 1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discordapp.com/users/844918394888388629/">click here</a> to direct message to our vacbot<br>
 2. type <code>$vacbot</code> in text channels to show the wizard where you can see link to add the bot to other servers and also an option to direct message to bot. click that link.
-3. when you open Direct Message to the bot you can see every commans using <code>help</code> command<br>
+3. when you open Direct Message to the bot you can see every commands using <code>help</code> command<br>
 4. First find your State code using <code>show states</code> command.<br>
 5. Now find your district code using <code>show district STATE-CODE</code>  -> Eg: if kerala state, <code>show district 17</code><br>
 6. Now you get a list of districts with district code, now you have to register, so that you'll recieve the notifications related to open slots for Covid Vaccination. For that use <code>register DISTRICT_CODE AGE</code> -> Eg: If you are from Malappuram District of Kerala and your age is 25, <code>register 302 25</code><br>
