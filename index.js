@@ -193,9 +193,8 @@ async function showUser(id){
     if(exists){
         const userData=await database.collection('users').findOne({id:id})
         let userMessage = new Discord.MessageEmbed()
-            .setColor('#0099ff')
+            .setColor('#44c544')
             .setTitle('User Data')
-            .setDescription("Your are registered.")
             .addFields(
                 { name: 'Name', value: userData.name},
                 { name: 'Age', value: userData.age},
@@ -340,19 +339,20 @@ async function searchUpdates(date,code){
                     let count=0;
                     await data.centers.forEach(async(c)=>{
                         await c.sessions.forEach(async(s)=>{
-                            if(s.available_capacity>0){
-                                if(s.available_capacity>0&&s.min_age_limit<=person.age){
-                                    count++
-                                }
+                            if(s.available_capacity>0&&s.min_age_limit<=person.age){
+                                count++
                             }
+                            
                         })
                     })
                     let regMsg=new Discord.MessageEmbed()
+                            .setColor('#44c544')
                             .setTitle('Daily Update')
                             .setDescription(count+' slots are available for you')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                             
                     let nodataMsg=new Discord.MessageEmbed()
+                                .setColor('#ff1111')
                                 .setTitle('Daily Update')
                                 .setDescription('No slots available in your district for you age ('+person.age+')')        
                     const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));

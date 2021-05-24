@@ -1,13 +1,19 @@
 const Discord = require('discord.js')
+// aboutMessage is send to text channels.
+//registerMessage,showMessage, checkMessage, updateMessage are added to inhance user experience.(eg: if the first word is 'register' and command syntax is incorrect,bot will display syntax of register command)
+//commandsMessage contain all commands.its send when user type 'help'
+//states and districts are stored loccally to save api calls,so that more users can use the service,
+//also a file named district-list stores all valid values of district code.when user request commands with district codes,bot checks whether that code is in the list and then only make api request,so it saves api calls wasted by wrong district code
+
 module.exports.aboutMessage = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#4545ff')
 	.setImage('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('Welcome to VacBot')
 	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\nDM me <@844918394888388629>\n\n\u200B\n[ADD VacBot to your server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)")
 	.setFooter('This Bot is only available on DM.');
 
 module.exports.registerMessage=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields({ name: '\u200B', value: "**To register for updates:** \n`register <district code> <age>`"},
 				{name: '\u200B', value: "eg:- if you are a for 19 year old at calicut send: \n`register 305 19`" },
@@ -15,7 +21,7 @@ module.exports.registerMessage=new Discord.MessageEmbed()
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.showMessages=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
@@ -27,7 +33,7 @@ module.exports.showMessages=new Discord.MessageEmbed()
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.checkMessages=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
@@ -38,7 +44,7 @@ module.exports.checkMessages=new Discord.MessageEmbed()
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.updateMessage=new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#fd9900')
 	.setTitle('VacBot Help')
 	.addFields(
 		{name: '\u200B', value:[
@@ -49,7 +55,7 @@ module.exports.updateMessage=new Discord.MessageEmbed()
 	.setFooter("Type 'help' to see all commands");
 
 module.exports.commandsMessage = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#4545ff')
 	.setThumbnail('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('**VacBot**')
 	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[ADD VacBot to you server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)\n\u200B")
