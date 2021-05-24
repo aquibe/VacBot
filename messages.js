@@ -9,7 +9,7 @@ module.exports.aboutMessage = new Discord.MessageEmbed()
 	.setColor('#4545ff')
 	.setImage('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('Welcome to VacBot')
-	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\nDM me <@844918394888388629>\n\n\u200B\n[ADD VacBot to your server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)")
+	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\nDirect Message , I will not respond in channels\n\n\u200B\n[ADD VacBot to your server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)")
 	.setFooter('This Bot is only available on DM.');
 
 module.exports.registerMessage=new Discord.MessageEmbed()
