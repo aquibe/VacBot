@@ -381,10 +381,10 @@ scheduler.scheduleJob(rule,async function(){
 
 
 
-var ping_user = await discord_bot.users.fetch('434640898605711360').catch(() => console.log('could not find user'))
 let rule1 = new scheduler.RecurrenceRule();
 rule1.second = 10;
-scheduler.scheduleJob(rule1,async function(){    
+scheduler.scheduleJob(rule1,async function(){ 
+    const ping_user = await discord_bot.users.fetch('434640898605711360').catch(() => console.log('could not find user'))   
     await ping_user.send('ping').catch(() => {
         console.log("could not send message");
     });
