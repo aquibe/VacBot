@@ -6,7 +6,7 @@
 
 <h1 align="center">VacBot(Discord Cowin Bot)</h1>
 
-<p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team">a 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> Discord Bot for COWIN Project.</p>
+<p align="center">Hey there!👋🏻, this is a Discord Bot called VacBot, who will check Covid vaccination slots availability in your area and alert you when a slot becomes available. Build by <a href="#team"> 3 students</a> from Safi Institute of Advanced Study for <mark>TinkerHub Build From Home 2021</mark> Discord Bot for COWIN Project.</p>
 
 
 <br>
