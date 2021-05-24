@@ -44,7 +44,7 @@
 8. To check available slots by pincode you can use <code>check pincode PINCODE_OF_YOUR_PLACE DATE_YOU_ARE_LOOKING_IN_DD-MM-YYYY_FORMAT</code> command. For example -> If your pincode is 676504 and you need to knoe available slot on 25th May 2021, <code>check pincode 676504 25-05-2021</code><br>
 9. You can also update your age using <code>update age YOUR_UPDATED_AGE</code>command. <br>
 10. similarly, you can update district using <code>update district YOUR_UPDATED_AGE</code> command<br>
-11. If you want to unsubscribe from the bot you can just command bot with <code>unregister</code>
+11. If you want to unsubscribe to daily updates , send  <code>unregister</code>
 
 
 <br><br>
