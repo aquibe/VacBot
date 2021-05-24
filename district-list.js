@@ -1,3 +1,4 @@
+//this file stores all valid values of district code.when user request commands with district codes,bot checks whether that code is in the list and then only make api request,so it saves api calls wasted by wrong district code
 module.exports=[
     {
         "district_id": 3,
