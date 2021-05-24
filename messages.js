@@ -68,6 +68,7 @@ module.exports.commandsMessage = new Discord.MessageEmbed()
 				"To register for updates: \n`register <district code> <age>`",
 				"To see Your data: \n`show mydata`",
 				"To update your age: \n`update age <age>`",
+				"To update your district: \n`update district <district code>`",
 				"To un-register updates: \n`unregister`\n",
 			]},{name:'\u200B',value:'\u200B'}
 		)
