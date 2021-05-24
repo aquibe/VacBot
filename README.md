@@ -80,10 +80,10 @@ npm start
 <h1 id="library">Libraries used</h1>
 
 1. Discord.js : To make our NodeJS Bot for Discord<br>
-2. dotenv : To sett environmental Varible<br>
-3. https : To send request to Arogyasetu<br>
+2. dotenv : To set environmental Varible<br>
+3. https : To send api requests<br>
 4. mongoDB : Used as Database<br>
-5. scheduler : To shedule daily message
+5. scheduler : To shedule daily updates
 
 <br><br>
 
