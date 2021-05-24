@@ -43,7 +43,7 @@
 7. If you want to know what all data we store, you can use the <code>show mydata</code> command<br>
 8. To check available slots by Pincode you can use <code>check pincode PINCODE_OF_YOUR_PLACE DATE_YOU_ARE_LOOKING_IN_DD-MM-YYYY_FORMAT</code> command. For example -> If your Pincode is 676504 and you need to know the available slot on 25th May 2021, <code>check pincode 676504 25-05-2021</code><br>
 9. You can also update your age using <code>update age YOUR_UPDATED_AGE</code>command. <br>
-10. Similarly, you can update the district using the <code>update district YOUR_UPDATED_AGE</code> command<br>
+10. Similarly, you can update the district using the <code>update district NEW_DISTRICT_CODE</code> command. For example if you want to change your district to Kozhikode you can use, <code>update district 305</code>, where 305 is the code for Kozhikode District<br>
 11. If you want to unsubscribe to daily updates, send  <code>unregister</code>
 
 
