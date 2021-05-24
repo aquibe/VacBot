@@ -38,7 +38,7 @@
 2. type <code>$vacbot</code> in text channels to show the wizard where you can see link to add the bot to other servers and also an option to direct message to bot. click that link.
 3. when you open Direct Message to the bot you can see every commands using <code>help</code> command<br>
 4. First find your State code using <code>show states</code> command.<br>
-5. Now find your district code using <code>show district STATE-CODE</code>  -> Eg: if kerala state, <code>show district 17</code><br>
+5. Now find your district code using <code>show district STATE_CODE</code>  -> Eg: if kerala state, <code>show district 17</code><br>
 6. Now you get a list of districts with district code, now you have to register, so that you'll recieve the notifications related to open slots for Covid Vaccination. For that use <code>register DISTRICT_CODE AGE</code> -> Eg: If you are from Malappuram District of Kerala and your age is 25, <code>register 302 25</code><br>
 7. If you want to know what all datas we store, you can use <code>show mydata</code> command<br>
 8. To check available slots by pincode you can use <code>check pincode PINCODE_OF_YOUR_PLACE DATE_YOU_ARE_LOOKING_IN_DD-MM-YYYY_FORMAT</code> command. For example -> If your pincode is 676504 and you need to knoe available slot on 25th May 2021, <code>check pincode 676504 25-05-2021</code><br>
