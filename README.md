@@ -34,7 +34,7 @@
 <br><br>
 <h1 id="use">How to Use the Bot?</h1>
 
-1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discord.gg/DUPNJp7vYB/">click here</a> to join our VavBot server<br>
+1. <a href="https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=68608&scope=bot">Click here</a> to add the bot to your server or you can <a href="https://discord.gg/DUPNJp7vYB/">click here</a> to join our VacBot server<br>
 2. Type <code>$vacbot</code> in text channels to show the wizard where you can see the link to add the bot to other servers and also an option to direct message to the bot. Click that link or clcik on profile.
 3. When you open Direct Message to the bot you can see every command using the <code>help</code> command<br>
 4. First, find your State code using the <code>show states</code> command.<br>
