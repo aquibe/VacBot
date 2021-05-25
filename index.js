@@ -239,9 +239,11 @@ function checkDistrict(id,code,date){
                 })
 
                 let regMsg=new Discord.MessageEmbed()
+                            .setColor('#44c544')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                 let nodataMsg=new Discord.MessageEmbed()
                             .setTitle('Available slots : '+date)
+                            .setColor('#ff1111')
                             .setDescription('No available slots in this location')        
                  if(arr.length>0){
                     arr.forEach(async(i)=>{                      
@@ -281,9 +283,11 @@ function checkPincode(id,code,date){
                     }
                 })
                 let regMsg=new Discord.MessageEmbed()
+                            .setColor('#44c544')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                 let nodataMsg=new Discord.MessageEmbed()
                             .setTitle('Available slots : '+date)
+                            .setColor('#ff1111')
                             .setDescription('No available slots in this location')        
                  if(arr.length>0){
                     arr.forEach(async(i)=>{
@@ -350,11 +354,12 @@ async function searchUpdates(date,code){
                             .setTitle('Daily Update')
                             .setDescription(count+' slots are available for you')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
+                            .setFooter('Send `check '+code+' '+date+'` to see details of available centers')
                             
                     let nodataMsg=new Discord.MessageEmbed()
                                 .setColor('#ff1111')
                                 .setTitle('Daily Update')
-                                .setDescription('No slots available in your district for you age ('+person.age+')')        
+                                .setDescription('No slots available in your district for your age ('+person.age+')')        
                     const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));
                     if(count>0){
                         await fetchedUser.send(regMsg) 
