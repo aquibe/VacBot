@@ -9,7 +9,7 @@ module.exports.aboutMessage = new Discord.MessageEmbed()
 	.setColor('#4545ff')
 	.setImage('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('Welcome to VacBot')
-	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\nDirect Message , I will not respond in channels\n\n\u200B\n[ADD VacBot to your server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)")
+	.setDescription("Hey there!:wave: I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\nDirect Message , I will not respond in channels\n\n\u200B\n[Visit Website to know more](https://vacbot.netlify.app)")
 	.setFooter('This Bot is only available on DM.');
 
 module.exports.registerMessage=new Discord.MessageEmbed()
@@ -58,7 +58,7 @@ module.exports.commandsMessage = new Discord.MessageEmbed()
 	.setColor('#4545ff')
 	.setThumbnail('https://raw.githubusercontent.com/aquibe/VacBot/main/assets/wlogo.png')
 	.setTitle('**VacBot**')
-	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[ADD VacBot to you server](https://discord.com/oauth2/authorize?client_id=844918394888388629&permissions=93248&scope=bot)\n\u200B")
+	.setDescription("Hey there!👋 I am VacBot, I will check Covid vaccination slots availability in your area and alert you when a slot becomes available.\n\u200B\n[Visit Website to know more](https://vacbot.netlify.app)\n\u200B")
 	.addFields(
 		{name:"Commands", value:[
 				"To show list of states: \n`show states`", 

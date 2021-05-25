@@ -107,9 +107,11 @@ discord_bot.on('message',async (message)=>{
             }
         }
         else if(message.channel.type=='text'){           
-            if(commands[0]=='$vacbot'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
-                message.channel.send(msg.aboutMessage)
-            }//respond with an about message to channels which bot have 'SEND_MESSAGES' permission
+            if(commands[0]=='$vacbot'&&commands[1]=='website'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
+                message.channel.send('Visit : https://vacbot.netlify.app')
+            }else if(commands[0]=='$vacbot'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
+                    message.channel.send(msg.aboutMessage)//respond with an about message to channels which bot have 'SEND_MESSAGES' permission
+            }
         }
     }
 })
@@ -228,16 +230,15 @@ function checkDistrict(id,code,date){
             })
 
             resp.on('end',async()=>{
-                let arr=[];
+                let flag=0;
                 const data=JSON.parse(d);
                 const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
-                await data.sessions.forEach((i)=>{
+                await data.sessions.forEach(async(i)=>{
                     if(i.available_capacity>0){
-                        arr.push({name:i.name,value:"date : "+i.date+"\ncenter id : "+i.center_id+"\nname : "+i.name+"\naddress : "+i.address+"\nblock name : "+i.block_name+"\npincode : "+i.pincode+"\n\nfee type : "+i.fee_type+"\nfee : "+i.fee+"\nvaccine : "+i.vaccine+"\nminimum age : "+i.min_age_limit+"\n\ndose 1 capacity : "+i.available_capacity_dose1+"\ndose 2 capacity : "+i.available_capacity_dose2})
+                        flag++
+                        await fetchedUser.send("\nname : "+i.name+"\ncenter id : "+i.center_id+"\naddress : "+i.address+"\nblock name : "+i.block_name+"\npincode : "+i.pincode+"\n\nfee type : "+i.fee_type+"\nfee : "+i.fee+"\nvaccine : "+i.vaccine+"\nminimum age : "+i.min_age_limit+"\n\ndose 1 capacity : "+i.available_capacity_dose1+"\ndose 2 capacity : "+i.available_capacity_dose2+"\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
                     }
-
                 })
-
                 let regMsg=new Discord.MessageEmbed()
                             .setColor('#44c544')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
@@ -245,13 +246,7 @@ function checkDistrict(id,code,date){
                             .setTitle('Available slots : '+date)
                             .setColor('#ff1111')
                             .setDescription('No available slots in this location')        
-                 if(arr.length>0){
-                    arr.forEach(async(i)=>{                      
-                        let dataMsg=new Discord.MessageEmbed()
-                            .setTitle(i.name)
-                            .setDescription(i.value)
-                        await fetchedUser.send(dataMsg)
-                    })
+                 if(flag>0){
                     await fetchedUser.send(regMsg) 
                 }else{
                     await fetchedUser.send(nodataMsg) 
@@ -273,13 +268,14 @@ function checkPincode(id,code,date){
                 d+=c
             })
             resp.on('end',async()=>{
-                let arr=[];
+                let flag=0;
                 const data=JSON.parse(d)
                 const fetchedUser= await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
                
-                await data.sessions.forEach((i)=>{
-                    if(i.available_capacity>0){                     
-                        arr.push({name:i.name,value:`date : ${i.date}\ncenter id : ${i.center_id}\nname : ${i.name}\naddress : ${i.address}\nblock name : ${i.block_name}\npincode : ${i.pincode}\n\nfee type : ${i.fee_type}\nfee : ${i.fee}\nvaccine : ${i.vaccine}\nminimum age : ${i.min_age_limit}\n\ndose 1 capacity : ${i.available_capacity_dose1}\ndose 2 capacity : ${i.available_capacity_dose2}`})
+                await data.sessions.forEach(async(i)=>{
+                    if(i.available_capacity>0){  
+                        flag++                   
+                        await fetchedUser.send("\nname : "+i.name+"\ncenter id : "+i.center_id+"\naddress : "+i.address+"\nblock name : "+i.block_name+"\npincode : "+i.pincode+"\n\nfee type : "+i.fee_type+"\nfee : "+i.fee+"\nvaccine : "+i.vaccine+"\nminimum age : "+i.min_age_limit+"\n\ndose 1 capacity : "+i.available_capacity_dose1+"\ndose 2 capacity : "+i.available_capacity_dose2+"\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
                     }
                 })
                 let regMsg=new Discord.MessageEmbed()
@@ -289,13 +285,7 @@ function checkPincode(id,code,date){
                             .setTitle('Available slots : '+date)
                             .setColor('#ff1111')
                             .setDescription('No available slots in this location')        
-                 if(arr.length>0){
-                    arr.forEach(async(i)=>{
-                        let dataMsg=new Discord.MessageEmbed()
-                            .setTitle(i.name)
-                            .setDescription(i.value)
-                        await fetchedUser.send(dataMsg)
-                    })
+                 if(flag>0){
                     await fetchedUser.send(regMsg) 
                 }else{
                     await fetchedUser.send(nodataMsg) 
