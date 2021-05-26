@@ -109,6 +109,8 @@ discord_bot.on('message',async (message)=>{
         else if(message.channel.type=='text'){           
             if(commands[0]=='$vacbot'&&commands[1]=='website'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
                 message.channel.send('Visit : https://vacbot.netlify.app')
+            }else if(commands[0]=='$vacbot'&&commands[1]=='help'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
+                message.channel.send('How to use VacBot : https://www.youtube.com/watch?v=K-_oxnVltrw\n\nVisit VacBot Website : https://vacbot.netlify.app')
             }else if(commands[0]=='$vacbot'&&message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES')){
                     message.channel.send(msg.aboutMessage)//respond with an about message to channels which bot have 'SEND_MESSAGES' permission
             }
