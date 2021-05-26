@@ -145,12 +145,14 @@ async function addUser(id,name,code,district_name,age){
     const database = dbClient.db(db_name)
     let exists = await database.collection('users').countDocuments({id:id})
     if(!exists){
+        await database.collection('total').insertOne({id: id,name:name,code:code,age:age,district:district_name})
         await database.collection('users').insertOne({id: id,name:name,code:code,age:age,district:district_name})
         await addDistrict(code,district_name)
     }else{
         const dis = await database.collection('users').findOne({id:id})
         await removeDistrict(dis.code) 
         await database.collection('users').updateOne({id:id},{$set:{age:age,code:code,district:district_name,name:name}}) 
+        await database.collection('total').updateOne({id:id},{$set:{age:age,code:code,district:district_name,name:name}}) 
         await addDistrict(code,district_name)
     }
 }//function to add a user to db 
@@ -161,6 +163,7 @@ async function updateAge(id,age){
     let exists = await database.collection('users').countDocuments({id:id})
     if(exists){
         await database.collection('users').updateOne({id:id},{$set:{age:age}}) 
+        await database.collection('total').updateOne({id:id},{$set:{age:age}}) 
     }else{
         const fetchedUser=await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
         await fetchedUser.send('You are a not registered user.') 
@@ -174,6 +177,7 @@ async function updateDistrict(id,code,name){
         const dis = await database.collection('users').findOne({id:id})
         await removeDistrict(dis.code)   
         await database.collection('users').updateOne({id:id},{$set:{code:code,district:name}})  
+        await database.collection('total').updateOne({id:id},{$set:{code:code,district:name}})  
         await addDistrict(code,name)      
     }else{
         const fetchedUser=await discord_bot.users.fetch(id).catch(() => console.log('could not find user'));
