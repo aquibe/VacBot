@@ -350,7 +350,7 @@ async function searchUpdates(date,code){
                             .setTitle('Daily Update')
                             .setDescription(count+' slots are available for you')
                             .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
-                            .setFooter('Send `check '+code+' '+date+'` to see details of available centers')
+                            .setFooter('Send `check district '+code+' '+date+'` to see details of available centers')
                             
                     let nodataMsg=new Discord.MessageEmbed()
                                 .setColor('#ff1111')
