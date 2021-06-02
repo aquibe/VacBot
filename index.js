@@ -4,7 +4,6 @@ const Discord = require('discord.js')// imported discord js
 const discord_bot= new Discord.Client()// created client object
 
 const https = require('https') // imported http module
-const scheduler = require('node-schedule')//imported node-sheduler 
 const msg= require('./messages') // imported files containing some discord messages
 const districtList=require('./district-list')// list of valid district codes
 
@@ -346,22 +345,14 @@ async function searchUpdates(date,code){
                         })
                     })
                     let regMsg=new Discord.MessageEmbed()
-                            .setColor('#44c544')
-                            .setTitle('Daily Update')
-                            .setDescription(count+' slots are available for you')
-                            .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
-                            .setFooter('Send `check district '+code+' '+date+'` to see details of available centers')
-                            
-                    let nodataMsg=new Discord.MessageEmbed()
-                                .setColor('#ff1111')
-                                .setTitle('Daily Update')
-                                .setDescription('No slots available in your district for your age ('+person.age+')')        
-                    const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));
+                        .setColor('#44c544')
+                        .setTitle('VacBot Update')
+                        .setDescription(count+' centers are available for you')
+                        .addFields({name:"To register,visit",value:"https://www.cowin.gov.in/home"})
                     if(count>0){
+                        const fetchedUser= await discord_bot.users.fetch(person.id).catch(() => console.log('could not find user'));                  
                         await fetchedUser.send(regMsg) 
-                    }else{
-                        await fetchedUser.send(nodataMsg) 
-                    }  
+                    } 
                 })                                         
             })
         }
@@ -371,25 +362,10 @@ async function searchUpdates(date,code){
 
 
 
-let rule=new scheduler.RecurrenceRule();
-rule.hour=1
-rule.minute=10
-rule.second=30
-scheduler.scheduleJob(rule,async function(){
-    dailyUpdate();
-})//schedule daily updates
+setInterval(()=>{
+    dailyUpdate()
+},1000*60*10)
 
-
-
-
-let rule1 = new scheduler.RecurrenceRule();
-rule1.second = 10;
-scheduler.scheduleJob(rule1,async function(){ 
-    const ping_user = await discord_bot.users.fetch('434640898605711360').catch(() => console.log('could not find user'))   
-    await ping_user.send('ping').catch(() => {
-        console.log("could not send message");
-    });
-})//to make the bot stay online
 
 
 
