@@ -1,5 +1,5 @@
 require('dotenv').config()//env variables
-
+//vacbot
 const Discord = require('discord.js')// imported discord js
 const discord_bot= new Discord.Client()// created client object
 
